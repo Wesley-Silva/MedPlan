@@ -1,5 +1,4 @@
 using MedPlan.Data.Context;
-using MedPlan.Data.Contexto;
 using MedPlan.Entities.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
