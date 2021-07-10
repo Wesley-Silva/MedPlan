@@ -4,4 +4,9 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\MedPlan.Domain\MedPlan.Domain.csproj" />
+    <ProjectReference Include="..\MedPlan.Entities\MedPlan.Entities.csproj" />
+  </ItemGroup>
+
 </Project>
