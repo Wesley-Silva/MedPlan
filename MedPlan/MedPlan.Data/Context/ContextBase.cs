@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore;
 using System;
 using System.Linq;
 
-namespace MedPlan.Data.Contexto
+namespace MedPlan.Data.Context
 {
     public class ContextBase : IdentityDbContext<Usuario>
     {
