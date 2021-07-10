@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Text.Encodings.Web;
 using System.Threading.Tasks;
+using MedPlan.Entities.Models;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
@@ -45,6 +46,15 @@ namespace MedPlan.App.Areas.Identity.Pages.Account
 
         public class InputModel
         {
+            [Display(Name = "Nome do usuário")]
+            [MaxLength(255)]
+            public string Nome { get; set; }
+
+            [Required]
+            [MaxLength(11)]
+            [Display(Name = "CPF")]
+            public string CPF { get; set; }
+
             [Required]
             [EmailAddress]
             [Display(Name = "Email")]
@@ -74,7 +84,16 @@ namespace MedPlan.App.Areas.Identity.Pages.Account
             ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
             if (ModelState.IsValid)
             {
-                var user = new IdentityUser { UserName = Input.Email, Email = Input.Email };
+                //var user = new IdentityUser { UserName = Input.Email, Email = Input.Email };
+                var user = new Usuario
+                {
+                    UserName = Input.Email,
+                    Email = Input.Email,
+                    Nome = Input.Nome,
+                    CPF = Input.CPF,
+                    Tipo = Entities.Enums.TipoUsuario.Comum
+                };
+
                 var result = await _userManager.CreateAsync(user, Input.Password);
                 if (result.Succeeded)
                 {

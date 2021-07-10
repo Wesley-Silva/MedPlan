@@ -1,8 +1,9 @@
-﻿namespace MedPlan.Entities.Models
+﻿using System;
+
+namespace MedPlan.Entities.Models
 {
-    public class Procedimento
-    {
-        public int Id { get; set; }
+    public class Procedimento : Entity
+    {        
         public string Nome { get; set; }
         public decimal Valor { get; set; }
     }

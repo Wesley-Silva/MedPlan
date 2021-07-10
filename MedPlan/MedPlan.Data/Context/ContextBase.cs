@@ -10,14 +10,14 @@ namespace MedPlan.Data.Context
     public class ContextBase : IdentityDbContext<Usuario>
     {
         public ContextBase()
-        {
-        }
+        { }
 
         public ContextBase(DbContextOptions<ContextBase> options)
             : base(options)
         { }
 
         public DbSet<Usuario> Usuarios { get; set; }
+        public DbSet<Procedimento> Procedimentos { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

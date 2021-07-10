@@ -1,0 +1,66 @@
+﻿@model IEnumerable<MedPlan.App.ViewModels.ProcedimentoViewModel>
+
+<section class="section">
+    <div class="section-body">
+        <div class="row">
+            <div class="col-12 col-md-6 col-lg-6">
+                <div class="card">
+                    <div class="card-header">
+                        <h4>Procedimentos</h4>                        
+                        <a asp-action="Create"><i data-feather="plus-circle" style="margin-left: 580px;"></i></a>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-bordered table-md">
+                                <tr>                                    
+                                    <th>Nome</th>
+                                    <th>Valor</th>
+                                    <th>Status</th>
+                                    <th></th>
+                                    <th></th>
+                                </tr>
+                                @foreach (var procedimento in Model)
+                                {
+                                    <tr> 
+                                        <td>@procedimento.Nome</td>
+                                        <td>@procedimento.Valor</td>
+                                        <td>
+                                            <div class="badge badge-success">Ativo</div>
+                                        </td>
+                                        <td>                      
+                                            <a asp-action="Editar" asp-route-id="@procedimento.Id"><i data-feather="edit"></i></a>                                                                                      
+                                        </td>
+                                        <td>
+                                            <a asp-action="Delete" asp-route-id="@procedimento.Id"><i data-feather="delete"></i></a>
+                                        </td>
+                                    </tr>
+                                }                                
+                            </table>
+                        </div>
+                    </div>
+                    <div class="card-footer text-right">
+                        <nav class="d-inline-block">
+                            <ul class="pagination mb-0">
+                                <li class="page-item disabled">
+                                    <a class="page-link" href="#" tabindex="-1"><i class="fas fa-chevron-left"></i></a>
+                                </li>
+                                <li class="page-item active">
+                                    <a class="page-link" href="#">
+                                        1 <span class="sr-only">(current)</span>
+                                    </a>
+                                </li>
+                                <li class="page-item">
+                                    <a class="page-link" href="#">2</a>
+                                </li>
+                                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                <li class="page-item">
+                                    <a class="page-link" href="#"><i class="fas fa-chevron-right"></i></a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>            
+        </div>       
+    </div>
+</section>
